@@ -1,5 +1,6 @@
 package io.redbee.academy.persistence.jdbc.examples;
 
+import io.redbee.academy.persistence.jdbc.model.Movie;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,8 +40,9 @@ public class PreparedStatementSelect {
                 final String title = resultSet.getString("title");
                 final Integer year = resultSet.getInt("year");
                 final String creation_user = resultSet.getString("creation_user");
+                final Movie movie = new Movie(id,title,year, creation_user);
 
-                log.info("\t id: {}, title: {}, year: {}, creation_user: {}", id, title, year, creation_user);
+                log.info("Peliculas: {}" , movie.toString());
             }
 
             resultSet.close();
